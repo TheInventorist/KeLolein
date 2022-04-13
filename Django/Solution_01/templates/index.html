@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} listado de ventas {% endblock title %}</title>
+</head>
+<body>
+    {%block body%}
+        <h1>Listado</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th> Detalle </th>
+                    <th> Fecha </th>
+                    <th> Monto </th>
+                    <th> Option </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sale in sales %}
+                <tr>
+                    <td>{{sale.detail}}</td>
+                    <td>{{sale.date}}</td>
+                    <td>{{sale.amount}}</td>
+                    <td><a href="{% url 'edititem' sale.id %}">Edit</a>  <a href="{% url 'deleteitem' sale.id %}">Delete</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <button>
+            <a href="{% url 'createitem' %}">
+                Create
+            </a>
+        </button>
+    {%endblock body%}
+</body>
+</html>

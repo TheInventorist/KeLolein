@@ -1,0 +1,23 @@
+img{
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+}
+
+p{
+    margin: 2px;
+}
+
+.box2{
+    text-align: center;
+    position: relative;
+    display: block;
+    float: left;
+    border: 1px;
+    border-style: ridge;
+    border-color: gray;
+    width: 300px;
+    background-color: aliceblue;
+    margin: 10px;
+}

@@ -1,27 +1,29 @@
+
+import React, {useState} from 'react';
 import './App.css';
-// import ContenedorSimple from './Componentes/ComponenteSimple/ComponenteSimple';
-// import Componente02 from './Componentes/Componente02/Componente02';
-import Table01 from './Componentes/Table01/Table01';
+import NewTask from './Componentes/TaskComponents/NewTask/NewTask';
+import TaskList from './Componentes/TaskComponents/TaskList/TaskList';
 
 function App() {
 
-  const tableContent = [
-    {id:'0', detaill:'Comida de perro', price:'15.000', state:'Entregado'},
-    {id:'1', detaill:'Tocomples', price:'23.000', state:'Entregado'},
-    {id:'2', detaill:'Agua mineral', price:'6.000', state:'En camino'},
-    {id:'3', detaill:'Centella', price:'99.999', state:'Subastado'},
-    {id:'4', detaill:'Chocolate de oro', price:'20.000', state:'Entregado'},
-  ];
+  const [TasksTodo, setTasks] = useState([
+          {id: '1', text: 'Finish Course'},
+          {id: '2', text: 'Learn more'},
+          {id: '3', text: 'Help others'}
+        ]);
 
-  return (
-    <div>
-      {/* <ContenedorSimple/>
-      <Componente02/> */}
-      {/* <div>
-        {Array(4).fill(<Componente02/>)}
-      </div> */}
-      <Table01 content={tableContent}/>
-    </div>
+      const addNewTaskHandler = (newTask) => {
+        setTasks(TasksTodo.concat(newTask));
+        console.log(TasksTodo);
+        }
+
+    return (
+      <div className='course-goals'>
+        <h2>Course Tasks</h2>
+          <NewTask onAddTask={addNewTaskHandler}/>
+          <TaskList tasks={TasksTodo}/>
+      </div>
+    
   );
 }
 

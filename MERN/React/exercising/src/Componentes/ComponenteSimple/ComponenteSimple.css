@@ -1,0 +1,13 @@
+.box {
+    border: 1px;
+    border-style: ridge;
+    border-color: gray;
+    width: 300px;
+    background-color: aliceblue;
+}
+
+h1{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+

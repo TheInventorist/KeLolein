@@ -1,40 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
-import { render } from '@testing-library/react';
-import React, {useState} from 'react';
+// import { render } from '@testing-library/react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 
-import GoalList from './components/GoalList/GoalList';
-import NewGoal from './components/NewGoal/NewGoal';
+// import TaskList from './components/TaskList/TaskList';
+// import NewTask from './components/NewTask/NewTask';
+import Page1 from './Pages/Page1';
+import Page2 from './Pages/Page2';
 
 const App = () => {
 
-  const [courseGoals, setCourseGoals] = useState([
-      {id: 'cg1', text: 'Finish Course'},
-      {id: 'cg2', text: 'Learn more'},
-      {id: 'cg3', text: 'Help others'}
-    ]);
+  // const [TasksTodo, setTasks] = useState([
+  //     {id: '1', text: 'Finish Course'},
+  //     {id: '2', text: 'Learn more'},
+  //     {id: '3', text: 'Help others'}
+  //   ]);
   
-  const addNewGoalHandler = (newGoal) => {
-    setCourseGoals(courseGoals.concat(newGoal));
-  }
+  // const addNewTaskHandler = (newTask) => {
+  //   setTasks(TasksTodo.concat(newTask));
+  // }
 
-  return <div className='course-goals'>
-    <h2>Course goals</h2>
-      <NewGoal onAddGoal={addNewGoalHandler}/>
-      <GoalList goals={courseGoals}/>
-  </div>;
-}
+  return <Router>
+    <Switch>
+      <Route path="/" exact>
+          <Page1/>
+        </Route>
+        <Route path='/newplace'>
+          <Page2/>
+        </Route>
+        <Redirect to="/"/>
+      </Switch>
+    </Router>;
 
-// Componente React retornando llamada React.createElement
-// const App = () => {
-//   return React.createElement('h1', {title: 'funciona!'}, HOLA);
-// }
-
-// // Componente React mediante clase javascript y renderizando JSX
-// class App extends React.Component{
-//   render(){
-//     return <h1 title='funciona!'> HOLA </h1>;
-//   }
-// }
+  // return (
+  // <div className='course-goals'>
+  //   <h2>Course Tasks</h2>
+  //     <NewTask onAddTask={addNewTaskHandler}/>
+  //     <TaskList tasks={TasksTodo}/>
+  // </div>
+  // );
+};
 
 export default App;

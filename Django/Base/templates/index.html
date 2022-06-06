@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} listado de personas {% endblock title %} </title>
+</head>
+<body>
+    {% block body %}
+        <h1> Listado </h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th> Nombre </th>
+                    <th> Apellido </th>
+                    <th> Email </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for persona in personas %}
+                <tr>
+                    <td> {{persona.name}} </td>
+                    <td> {{persona.lastname}} </td>
+                    <td> {{persona.email}} </td>
+                    <td> <a href=""> Edit </a>   <a href=""> Delete </a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <button>
+            <a href="">
+                Create
+            </a>
+        </button>
+    {% endblock body %}
+</body>
